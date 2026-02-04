@@ -1,3 +1,7 @@
+This fork of the [LaTeX-OCR](https://github.com/lukas-blecher/LaTeX-OCR) repository is to fix the issues I was having when running the API on localhost to use with the MathLive obsidian plugin. It works for me, but may not work for you. 
+
+I will not be adding any new features. If you think there should be more changes to fix other things, please create a pull request.
+
 # pix2tex - LaTeX OCR
 
 [![GitHub](https://img.shields.io/github/license/lukas-blecher/LaTeX-OCR)](https://github.com/lukas-blecher/LaTeX-OCR) [![Documentation Status](https://readthedocs.org/projects/pix2tex/badge/?version=latest)](https://pix2tex.readthedocs.io/en/latest/?badge=latest) [![PyPI](https://img.shields.io/pypi/v/pix2tex?logo=pypi)](https://pypi.org/project/pix2tex) [![PyPI - Downloads](https://img.shields.io/pypi/dm/pix2tex?logo=pypi)](https://pypi.org/project/pix2tex) [![GitHub all releases](https://img.shields.io/github/downloads/lukas-blecher/LaTeX-OCR/total?color=blue&logo=github)](https://github.com/lukas-blecher/LaTeX-OCR/releases) [![Docker Pulls](https://img.shields.io/docker/pulls/lukasblecher/pix2tex?logo=docker)](https://hub.docker.com/r/lukasblecher/pix2tex) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lukas-blecher/LaTeX-OCR/blob/main/notebooks/LaTeX_OCR_test.ipynb) [![Hugging Face Spaces](https://img.shields.io/badge/🤗%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/lukbl/LaTeX-OCR)
