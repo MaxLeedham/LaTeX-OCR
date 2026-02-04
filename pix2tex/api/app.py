@@ -1,14 +1,22 @@
 # Adapted from https://github.com/kingyiusuen/image-to-latex/blob/main/api/app.py
 
 from http import HTTPStatus
-from fastapi import FastAPI, File, UploadFile, Form
+from fastapi import FastAPI, File, UploadFile, Form, Response
 from PIL import Image
 from io import BytesIO
 from pix2tex.cli import LatexOCR
+from fastapi.middleware.cors import CORSMiddleware
 
 model = None
-app = FastAPI(title='pix2tex API')
+app = FastAPI(title='pix2tex API', redirect_slashes=False)
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 
 def read_imagefile(file) -> Image.Image:
     image = Image.open(BytesIO(file))
@@ -47,6 +55,10 @@ async def predict(file: UploadFile = File(...)) -> str:
     image = Image.open(file.file)
     return model(image)
 
+@app.options("/predict")
+@app.options("/predict/")
+async def options_predict():
+    return Response(status_code=200)
 
 @app.post('/bytes/')
 async def predict_from_bytes(file: bytes = File(...)) -> str:  # , size: str = Form(...)

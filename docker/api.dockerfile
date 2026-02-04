@@ -1,5 +1,15 @@
-FROM python:3.8-slim
-RUN pip install torch>=1.7.1
+FROM python:3.9-slim
+
+RUN apt-get update && apt-get install -y \
+    libglib2.0-0 \
+    libsm6 \
+    libxext6 \
+    libxrender1 \
+    libxcb1 \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip install torch torchvision torchaudio \
+    --index-url https://download.pytorch.org/whl/cpu
 WORKDIR /latexocr
 ADD pix2tex /latexocr/pix2tex/
 ADD setup.py /latexocr/
